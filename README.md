@@ -71,9 +71,29 @@
 - Chia nhỏ mảng → sắp xếp → ghép lại
 - Chia `log n` lần, mỗi lần ghép `O(n)` → `O(n log n)`
 
+**Minh hoạ:**
+```
+[38, 27, 43, 3, 9, 82, 10]
+↓
+[38, 27, 43]     [3, 9, 82, 10]
+↓
+[38] [27, 43]    [3, 9] [82, 10]
+↓
+[27] [43] → [27, 43] → [27, 38, 43]...
+```
+
 #### Selection Sort:
 - Tìm phần tử nhỏ nhất tiếp theo rồi đổi chỗ
 - `O(n)` lần tìm × `n` phần tử → `O(n²)`
+
+**Minh hoạ:**
+```
+[5, 3, 6, 2, 1]
+↓ (chọn nhỏ nhất: 1)
+[1, 3, 6, 2, 5]
+↓ (chọn nhỏ nhất trong phần còn lại)
+[1, 2, 6, 3, 5]...
+```
 
 ---
 
@@ -93,11 +113,29 @@
 - Node trái < node mẹ, node phải ≥ node mẹ
 - Trung bình `O(log n)` cho tìm kiếm/thêm/xoá
 
+**Minh hoạ:**
+```
+      8
+     / \
+    3   10
+   / \    \
+  1   6    14
+```
+
 ### Heap (Priority Queue)
 - Dạng cây dùng mảng
 - Min-heap: con nhỏ hơn hoặc bằng cha
 - Max-heap: con lớn hơn hoặc bằng cha
 - `Insert/Delete`: `O(log n)`; `get min/max`: `O(1)`
+
+**Minh hoạ (Min-heap):**
+```
+       2
+     /   \
+    4     3
+   / \   /
+  5   9 6
+```
 
 ---
 
@@ -107,9 +145,19 @@
 - Duyệt theo chiều sâu
 - Dùng **stack** (thêm/xoá ở cuối)
 
+**Minh hoạ:**
+```
+DFS: 1 → 2 → 4 → 5 → 3
+```
+
 ### BFS (Breadth First Search)
 - Duyệt theo từng lớp
 - Dùng **queue** (thêm cuối, xoá đầu)
+
+**Minh hoạ:**
+```
+BFS: 1 → 2 → 3 → 4 → 5
+```
 
 ---
 
@@ -128,6 +176,15 @@
 - **Unweighted**: không có giá trị
 - **Weighted**: có trọng số
 
+**Minh hoạ:**
+```
+Directed:
+A → B → C
+
+Undirected:
+A — B — C
+```
+
 ---
 
 ## Dijkstra's Algorithm
@@ -143,3 +200,19 @@
 - Mỗi cạnh có thể cập nhật: `O(E log V)`
 - **Tổng cộng**: `O((V + E) log V)`
 
+**Minh hoạ:**
+```
+Graph:
+A --1-- B --2-- C
+ \     /
+  4   3
+   \ /
+    D
+
+Start: A
+Output distances:
+A: 0
+B: 1
+C: 3
+D: 4
+```
