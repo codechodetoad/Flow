@@ -136,6 +136,30 @@
    / \   /
   5   9 6
 ```
+### Dictionary / HashMap
+- Cấu trúc lưu trữ dữ liệu theo cặp `key-value`
+- Truy cập cực nhanh bằng cách dùng key
+- Dùng hàm băm (hash function) để tìm vị trí lưu trong bộ nhớ
+
+**Ví dụ (Python):**
+```python
+person = {
+    "name": "Alice",
+    "age": 25,
+    "is_student": True
+}
+print(person["name"])  # Alice
+```
+
+### Time Complexity:
+- Tìm kiếm / Thêm / Xoá trung bình: `O(1)`
+- Trường hợp tệ nhất (nhiều va chạm - collision): `O(n)`
+
+**Minh hoạ thực tế:**
+```
+Danh bạ: {"John": "123-456", "Emma": "789-123"}
+Từ điển từ: {"cat": 3, "the": 5, "sat": 2}
+```
 
 ---
 
