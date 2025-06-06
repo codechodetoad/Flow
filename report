@@ -1,0 +1,89 @@
+Trình độ coding : beginner 
+
+Os(operating system):Hệ điều hành 
+Quản lý phần cứng và mềm, bộ nhớ, quy trình, file, và thiết bị. Cung cấp UI và chạy các ứng dụng cùng các công việc đã được giao.
+
+Kernel(Lõi):
+Nhân của Os dùng low level code để ra lệnh cho hardware. Quản lý các quy trình và bộ nhớ. Xử lý phần giao lệnh cho các driver và hardware của thiết bị. Quản chặt bảo mật và quyền truy cập.
+
+Chip set(tập hơp của các con chip):
+Giúp CPU giao lệnh cho các bộ phận khác trên motherboard. Quản lý ram, USB, PCIe connections. Điều phối giữa CPU, GPU và các thiết bị ngoại bị
+
+CPU(Central processing unit):
+Bộ xử lý trung tâm xử lý các tác vụ chung, ít core hơn GPU nhưng các core khỏe hơn. 
+Được dành cho web. word và hệ điều hành.
+
+
+GPU(Graphic processing unit)
+Bộ xử lý đồ họa, xử lý song song các tác vụ, nhiều core hơn CPU nhưng các core yếu hơn. Được dành cho render game, huấn luyện mô hình AI.
+
+Tại sao GPU lại được dùng trong huấn luyện AI?
+Training AI model cần rất nhiều tính toàn song song của ma trận, vector,..
+GPU có nhiều lõi hơn và chúng được thiết kế và tối ưu để thưc hiện cùng một phép tính trên nhiều dữ liệu một lúc
+GPU có bandwidth(băng thông) bộ nhớ cao hơn
+
+AMD: 
+Cấu trúc CISC
+Tiêu thụ nhiều điện năng 
+Dành cho máy tính high end, gaming 
+Hiệu suất đơn luồng cao
+
+ARM:
+Cấu trúc RISC
+Tiêu thụ ít năng lượng
+Dành cho laptop, tablet 
+Hiệu suất đơn luồng thấp
+
+
+Data Structures and Algorithms:
+
+Time complexity (BigO notation):
+Quan hệ giữa sự tăng tiến của input và sự tăng tiến của output, nó thể hiện trường hợp tệ nhất về số phép tính mà một function phải làm để có thể hoàn thiện một việc được giao.
+
+Ví dụ: Binary search có time complexity của O(logn) vì mỗi lần search chúng ta sẽ chia đôi mảng dữ liệu sau mỗi lần không tìm được dữ liệu mà ta cần(tìm dữ liệu đó ở mảng trái hoặc phải). Sau k(k là input) lần phép tính này chũng ta sẽ có n/k^2 size của mảng đó và trong trường hợp tệ nhất thì đây sẽ chính là con số cuối cùng nên n/k^2 = 1 thì suy ra k = log2(n). Binary search chỉ có thể được dùng khi mảng dữ liệu đã được sắp xếp.
+
+Algorithms:(Thuật toán):
+Các chỉ dẫn bằng code để giải quyết một vấn đề:
+
+Sorting algorithms(thuật toán sắp xếp):
+Các chỉ dẫn để sắp xếp một mảng dữ liệu 
+merge sort :chia mảng dữ liệu ra nhiều mảng nhỏ hơn đẻ có thể sắp xếp chúng với một thời gian cố định xong ghép chúng lại thành các mảng lớn với thứ tự theo ý muốn và lặp lại đến khi hoàn thiện mảng dữ liệu đó với thứ tự chính xác. 
+Khi được thực hiện việc chia mảng thì mỗi lần sẽ chia đôi mảng đó vậy ta sẽ có tổng cộng log(n) mảng nên khi ghép lại các mảng cũng sẽ phải ghép lại log(n) số mảng. Mỗi lần ghép 2 mảng nhỏ lại ta sẽ cần O(n)  time complexity nên tổng số time complexity sẽ là O(nlogn).
+
+selection sort: đặt một pointer ở đầu của list và một pointer chạy dài(run linearly) trên mảng dữ liệu để tìm số nhỏ nhất tiếp theo ở trong mảng dữ liệu rồi đổi chỗ chúng và đẩy pointer pointer đầu tiên lên vị trí tiếp theo và pointer thứ hai chạy trong khoảng còn lại chưa được sắp xếp.
+Khi được thực hiện thì việc scan chạy dài(linear scan) thì time complexity sẽ là O(n) vì chúng ta tìm qua mọi dữ liệu của mảng dữ liệu và vì chúng ta làm thế cho số các số dữ liệu( trong trường hợp này là n) nên time complexitty sẽ là O(n^2)
+
+
+Data Structures:
+Array(Mảng):
+Một mảng dữ liệu được chứa trong một khối bộ nhớ diễn tiếp(mỗi item được xếp ngay cạnh item trước đó với không khoảng cách) có thể được truy cập và chỉnh sửa với các index. Mảng có kích cỡ cố định và không thể thực sự thêm một item vào được vì 
+
+Linked list:
+Một mảng dữ liệu không có kích cỡ cố định bao gồm các node có dữ liệu và một con trỏ chỉ vào node tiếp theo, con trỏ cuối cùng sẽ chỉ và null và node trước con trỏ đấy là node cuối. Chúng ta có thể thêm hoặc xóa một node mới vào với một time complexity không đổi bằng cách chỉ con trỏ sang một node mới và sắp xếp các con trỏ cũ lại. Chúng ta không thể truy cập vào các node với một time complexity không đổi như array với index của dữ liệu đó.
+
+Binary tree:
+The vì các node chỉ tới 1 node khác thì các node trong đây có thể chỉ tới 2 node con với node bên trái luôn nhỏ hơn node mẹ và node bên phải luôn lớn hơn hoặc bằng node mẹ, các node không chỉ tới đâu được gọi là lá. Time complexity để search, insert hoặc delete đều là O(H) trung bình là O(logn), H là chiều cao của cây. Nếu muốn tìm một item nào đó trong Binary tree thì ta chỉ cần xem xem giá trị của item lớn hay nhỏ hơn so với node mẹ.
+
+Heap(priority queue):
+Một cây được cài đặt bằng mảng với hàng chờ ưu tiên với 2 loại heap khác nhau min heap(các node bé hơn hoặc bằng node mẹ) và max heap(các node lớn hớn hoặc bằng node mẹ). Insert và delete các node sẽ có time complexity là O(logn) trong khi lấy node được ưu tiên bậc nhất hay còn gọi là rễ sẽ có time complexity là O(1).
+
+Stack trees
+DFS(Depth first search): Quét qua từng nhánh của cây. Dùng stack(thêm vào cuối dãy, xóa đi ở cuối dãy) 
+BFS(Breadth first search): Quét qua từng hàng của cây Dùng queue(thêm vào cuối dãy, xóa đi ở đầu dãy)
+
+Tại sao stack overflow?
+Một chương trình dùng quá nhiều bộ nhớ của stack thường xảy và với đệ quy số lớn lần.
+
+Graph
+Cấu trúc dữ liệu gồm các đỉnh(hoặc node) và cạnh(đường nối) 
+
+Các loại graph:
+Directed  graph: Các cạnh có chiều nên chỉ có thể đi từ 1 đầu cạnh đến cuối cạnh mà không phải ngược lại
+Undirected graph: Các cạnh không có chiều nên có đi qua lại các đỉnh
+Unweighted graph: Các cạnh không có giá trị
+Weighted graph : Các cạnh có giá trị
+
+Dijkstra’s algorithm:(một trong những thuật toán tìm đường nhanh nhất)
+Set giá trị của định bắt đầu là 0(khoảng cách) và khoảng cách tới node muốn tới là vô tận. Đặt các đỉnh ở trong một min heap được sắp xếp bằng giá trị nhỏ nhất. Nếu queue đang trống thì lấy đỉnh với giá trị nhỏ nhất với từng đỉnh hàng xóm(neighboring vertices) chúng ta sẽ xem xem đỉnh nào cho con đường ngắn hơn rồi cập nhật con đường đó.
+
+Việc set giá trị tới vộ tận có time complexity là O(V)(V là số đỉnh hay còn gọi là vertices). 
