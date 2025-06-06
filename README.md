@@ -1,175 +1,145 @@
-#  Coding Flow Notes
+# Ghi chú học lập trình cơ bản
 
-###  Trình độ: Beginner
-
----
-
-##  Operating System (OS)
-
-- **Hệ điều hành**: Quản lý phần cứng và phần mềm (RAM, CPU, tiến trình, file, thiết bị).
-- Cung cấp giao diện người dùng và thực thi các ứng dụng.
+### Trình độ: Beginner
 
 ---
 
-##  Kernel (Lõi)
+## Operating System (Hệ điều hành)
 
-- Nhân của OS, viết bằng mã low-level để điều khiển phần cứng.
-- Quản lý tiến trình, bộ nhớ, driver, và bảo mật.
+- Quản lý phần cứng và phần mềm, bộ nhớ, tiến trình, file, thiết bị
+- Cung cấp giao diện người dùng (UI) và thực thi ứng dụng
 
----
+### Kernel (Nhân hệ điều hành)
 
-##  Chipset
+- Phần lõi dùng low-level code điều khiển phần cứng
+- Quản lý bộ nhớ, tiến trình, driver, bảo mật và quyền truy cập
 
-- Tập hợp các chip giúp CPU giao tiếp với phần còn lại của bo mạch chủ.
-- Điều phối RAM, USB, PCIe, CPU, GPU, thiết bị ngoại vi.
+### Chipset (Tập hợp các chip trên motherboard)
 
----
-
-##  CPU (Central Processing Unit)
-
-- Xử lý các tác vụ chung, ít lõi hơn GPU nhưng lõi mạnh hơn.
-- Dành cho các ứng dụng như web, Word, hệ điều hành.
+- Giúp CPU giao tiếp với RAM, USB, PCIe, GPU, v.v.
+- Điều phối hoạt động giữa CPU và các bộ phận khác
 
 ---
 
-##  GPU (Graphics Processing Unit)
+## CPU vs GPU
 
-- Xử lý song song tốt hơn, nhiều lõi hơn CPU nhưng yếu hơn.
-- Dành cho render game, huấn luyện mô hình AI.
+### CPU (Central Processing Unit)
 
-####  Tại sao GPU dùng cho huấn luyện AI?
+- Ít lõi nhưng lõi mạnh
+- Dành cho các tác vụ chung như Word, hệ điều hành, trình duyệt
 
-- Huấn luyện AI cần tính toán ma trận, vector song song.
-- GPU có nhiều lõi và được tối ưu để thực hiện cùng lúc nhiều phép tính.
-- Băng thông bộ nhớ (bandwidth) cao hơn CPU.
+### GPU (Graphic Processing Unit)
+
+- Nhiều lõi nhưng yếu hơn
+- Dành cho render game và huấn luyện AI model
+
+### Tại sao GPU dùng cho AI?
+
+- Tính toán song song với ma trận, vector rất hiệu quả
+- Tối ưu để làm cùng phép tính trên nhiều dữ liệu
+- Băng thông bộ nhớ cao hơn CPU
 
 ---
 
-##  Kiến trúc CPU
+## Kiến trúc phần cứng
 
-###  AMD
+### AMD (CISC)
 
-- Cấu trúc: CISC
-- Tiêu thụ điện nhiều
-- Dành cho máy gaming, hiệu suất đơn luồng cao
+- Hiệu suất đơn luồng cao, tiêu thụ điện nhiều
+- Phù hợp với máy tính hiệu năng cao, gaming
 
-###  ARM
+### ARM (RISC)
 
-- Cấu trúc: RISC
-- Tiêu thụ ít điện
-- Dành cho laptop, tablet
-- Hiệu suất đơn luồng thấp
+- Tiết kiệm điện năng
+- Dùng cho laptop, tablet
+- Hiệu suất đơn luồng thấp hơn
 
 ---
 
 ## Data Structures & Algorithms
 
----
+### Time Complexity (Độ phức tạp thời gian - Big O)
 
-### Time Complexity (Big-O)
+- Đo số bước thực hiện trong trường hợp tệ nhất
+- Ví dụ: Binary Search là `O(log n)` vì mỗi lần chia đôi mảng
 
-- Đo lường mối quan hệ giữa input và số bước xử lý (trường hợp tệ nhất).
+> Chỉ dùng được nếu mảng đã sắp xếp
 
-#### Ví dụ: Binary Search
-- Time complexity: `O(log n)`
-- Mỗi lần chia đôi mảng → `n / 2^k = 1` → `k = log₂(n)`
+### Algorithms (Thuật toán)
 
- **Lưu ý**: Binary Search chỉ dùng được khi mảng đã sắp xếp.
+#### Merge Sort:
+- Chia nhỏ mảng → sắp xếp → ghép lại
+- Chia `log n` lần, mỗi lần ghép `O(n)` → `O(n log n)`
 
----
-
-##  Algorithms (Thuật toán)
-
-###  Sorting Algorithms (Sắp xếp)
-
-#### 1. Merge Sort
-- Chia mảng → sắp xếp → ghép lại
-- Chia `log n` lần, mỗi lần ghép `O(n)`
-- **Time complexity**: `O(n log n)`
-
-#### 2. Selection Sort
-- Dùng hai con trỏ: tìm phần tử nhỏ nhất → đổi chỗ
-- Quét toàn bộ mảng `n` lần, mỗi lần `O(n)`
-- **Time complexity**: `O(n²)`
+#### Selection Sort:
+- Tìm phần tử nhỏ nhất tiếp theo rồi đổi chỗ
+- `O(n)` lần tìm × `n` phần tử → `O(n²)`
 
 ---
 
-##  Data Structures
+## Data Structures
 
-###  Array (Mảng)
+### Array (Mảng)
+- Bộ nhớ liên tiếp
+- Truy cập nhanh qua index
+- Kích thước cố định
 
-- Lưu trữ liên tiếp trong bộ nhớ
-- Truy cập nhanh bằng chỉ số
-- Kích thước cố định, không thêm trực tiếp được
+### Linked List
+- Gồm node và con trỏ đến node kế tiếp
+- Có thể thêm/xóa node dễ dàng mà không cần dời dữ liệu
 
-###  Linked List
-
-- Gồm các node có con trỏ tới node kế tiếp
-- Thêm/xóa dễ dàng
-- Không thể truy cập ngẫu nhiên như array
-
-###  Binary Tree
-
+### Binary Tree
 - Mỗi node có tối đa 2 node con
 - Node trái < node mẹ, node phải ≥ node mẹ
-- **Search/Insert/Delete**: `O(H)` (trung bình là `O(log n)`)
+- Trung bình `O(log n)` cho tìm kiếm/thêm/xoá
 
-###  Heap (Priority Queue)
-
-- Triển khai bằng mảng dạng cây
-- Có `min-heap` và `max-heap`
-- **Insert/Delete**: `O(log n)`, **get top**: `O(1)`
+### Heap (Priority Queue)
+- Dạng cây dùng mảng
+- Min-heap: con nhỏ hơn hoặc bằng cha
+- Max-heap: con lớn hơn hoặc bằng cha
+- `Insert/Delete`: `O(log n)`; `get min/max`: `O(1)`
 
 ---
 
-##  Tree Traversals
+## Tree Traversals
 
-###  DFS (Depth First Search)
-
+### DFS (Depth First Search)
 - Duyệt theo chiều sâu
-- Dùng **stack**
+- Dùng **stack** (thêm/xoá ở cuối)
 
-###  BFS (Breadth First Search)
-
-- Duyệt theo từng lớp (level)
-- Dùng **queue**
-
----
-
-## Stack Overflow Là Gì?
-
-- Khi chương trình sử dụng quá nhiều bộ nhớ stack
-- Thường xảy ra do **đệ quy quá sâu**
+### BFS (Breadth First Search)
+- Duyệt theo từng lớp
+- Dùng **queue** (thêm cuối, xoá đầu)
 
 ---
 
-##  Graph (Đồ thị)
-
-- Gồm các **đỉnh (node)** và **cạnh (edge)**
-
-###  Loại đồ thị:
-
-- **Directed graph**: Cạnh có chiều
-- **Undirected graph**: Cạnh hai chiều
-- **Unweighted**: Không có trọng số
-- **Weighted**: Có trọng số
+## Stack Overflow là gì?
+- Xảy ra khi dùng quá nhiều bộ nhớ stack (thường do đệ quy sâu)
 
 ---
 
-## Dijkstra’s Algorithm
+## Graph (Đồ thị)
 
-###  Ý tưởng:
+- Cấu trúc gồm **đỉnh (node)** và **cạnh (edge)**
 
-1. Khoảng cách từ đỉnh bắt đầu = 0, các đỉnh khác = ∞
-2. Dùng **min-heap** để chọn đỉnh có khoảng cách ngắn nhất
-3. Với mỗi hàng xóm, nếu tìm được đường đi ngắn hơn → cập nhật
+### Các loại đồ thị:
+- **Directed graph**: cạnh có chiều
+- **Undirected graph**: cạnh hai chiều
+- **Unweighted**: không có giá trị
+- **Weighted**: có trọng số
 
-###  Time Complexity:
+---
 
-- Thiết lập khoảng cách ban đầu: `O(V)`
-- Mỗi đỉnh vào heap 1 lần: `O(V log V)`
+## Dijkstra's Algorithm
+
+### Ý tưởng:
+1. Đặt khoảng cách đỉnh bắt đầu = 0, còn lại là ∞
+2. Dùng **min-heap** để chọn đỉnh gần nhất
+3. Duyệt các đỉnh kề, cập nhật đường đi ngắn hơn nếu có
+
+### Time Complexity:
+- Khởi tạo khoảng cách: `O(V)`
+- Mỗi đỉnh vào heap: `O(V log V)`
 - Mỗi cạnh có thể cập nhật: `O(E log V)`
 - **Tổng cộng**: `O((V + E) log V)`
-
----
 
