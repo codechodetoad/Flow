@@ -240,3 +240,34 @@ B: 1
 C: 3
 D: 4
 ```
+
+
+
+## Time Complexity Summary
+
+| Input Size | Bubble Sort     | Quick Sort      | Insertion Sort   |
+|------------|------------------|------------------|------------------|
+| 10         | 0.27 µs          | 0.9 µs           | 0.05 µs          |
+| 100        | 27.4 µs          | 9.1 µs           | 5.4 µs           |
+| 1,000      | 2.7 ms           | 177 µs           | 0.54 ms          |
+| 10,000     | 27.4 ms          | 1.149 ms         | 53 ms            |
+| 100,000    | 27,383 ms (27 s) | 10 ms            | 5,383 ms (5.4 s) |
+| 1,000,000  | 45.6 min         | 131 ms           | 9 min            |
+| 10,000,000 | 76 h             | 1.52 s           | 15 h             |
+
+
+## Graph: Time vs Input Size (Log-Log Scale)
+
+![Sorting Time Graph](sorting_graph.png)
+
+### Observations:
+- **Bubble Sort** and **Insertion Sort** perform well on small datasets but degrade drastically on larger ones.
+- **Quick Sort** scales efficiently, staying performant even at 10 million elements.
+
+
+
+## 📦 Requirements
+
+For generating the graph:
+```bash
+pip install matplotlib
