@@ -3,31 +3,35 @@ Flynn
 
 What it does
 ------------
-Plays the Bagels/Fermi/Pico version of Mastermind in MARS. The program
-picks a random 5-digit target with all unique digits (first digit 1-9),
-then repeatedly reads a 5-digit guess from the user and prints feedback
-until the player wins or concedes.
+This program runs a 5-digit version of the Bagels/Fermi/Pico Mastermind game in MARS. 
+The computer generates a random 5-digit number where all digits are unique and the 
+first digit is not zero. The player keeps entering guesses until they either guess 
+correctly or choose to quit.
 
-Feedback per guess:
-  Fermi  - one printed per digit that is correct and in the right spot
-  Pico   - one printed per digit that is in the target but wrong spot
-  Bagels - printed if no digits in the guess appear in the target
+After each guess, the program prints feedback:
+- Fermi: digit is correct and in the correct position
+- Pico: digit exists in the number but is in the wrong position
+- Bagels: no digits from the guess appear in the target
+
+The game ends when the player guesses the number exactly or enters 0 to concede. 
+In both cases, the program prints the total number of guesses.
 
 What works
 ----------
-- Computer generates the target using syscall 42 (random int range),
-  with uniqueness enforced by a retry loop and the first digit forced
-  into 1-9.
-- Single read_int per guess (no digit-by-digit input).
-- Fermi/Pico/Bagels scoring for 5-digit guesses.
-- Win detection when all 5 digits match in place; prints the guess count.
-- Surrender button on input 0: reveals the target and prints the guess count.
+- Random target generation using syscall 42
+- Ensures all digits are unique using a retry loop
+- First digit is always between 1 and 9
+- Input is handled with a single read_int per guess
+- Correctly calculates Fermi, Pico, and Bagels feedback
+- Detects a win when all 5 digits match in position
+- Tracks and prints the number of guesses
+- Allows the user to concede by entering 0
 - Input validation:
-    * rejects values outside 10000-99999
-    * rejects guesses with duplicate digits
-  Invalid guesses prints error and do not count
+  * Rejects numbers outside 10000–99999
+  * Rejects guesses with duplicate digits
+  * Invalid guesses print an error message and are not counted
 
-What does not work / limitations
---------------------------------
-- No replay loop. After a win or concede the program exits.
-
+Limitations
+-----------
+- No replay feature after the game ends
+- Program exits immediately after a win or concede
