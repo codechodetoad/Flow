@@ -1,7 +1,7 @@
 Mastermind - README
 Flynn
 
-#What it does
+# What it does
 
 The program is a 5 digit version of Mastermind. 
 The program generates a random 5-digit target where all digits are unique and
@@ -28,7 +28,7 @@ the leading digit is nonzero. The player enters guesses as a single
   * Rejects guesses with duplicate digits
   * Invalid guesses print an error message and are not counted
 
-# Limitations
+# What doesnt 
 
 - No replay feature after the game ends
 - Program exits immediately after a win or concede
