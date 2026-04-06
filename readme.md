@@ -3,18 +3,15 @@ Flynn
 
 What it does
 ------------
-This program runs a 5-digit version of the Bagels/Fermi/Pico Mastermind game in MARS. 
-The computer generates a random 5-digit number where all digits are unique and the 
-first digit is not zero. The player keeps entering guesses until they either guess 
-correctly or choose to quit.
-
-After each guess, the program prints feedback:
-- Fermi: digit is correct and in the correct position
-- Pico: digit exists in the number but is in the wrong position
-- Bagels: no digits from the guess appear in the target
-
-The game ends when the player guesses the number exactly or enters 0 to concede. 
-In both cases, the program prints the total number of guesses.
+The program is a 5 digit version of Mastermind. 
+The program generates a random 5-digit target where all digits are unique and
+the leading digit is nonzero. The player enters guesses as a single
+5-digit integer. After each guess the program responds :
+     Fermi  - digit correct and in correct position
+     Pico   - digit correct but in wrong position
+     Bagels - no digits match at all
+ The game ends when all the numbers match correctly, or if the player
+  surrenders by entering 0000 (read as integer 0). In either case the#   program prints the number of guesses used.
 
 What works
 ----------
